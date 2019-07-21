@@ -32,7 +32,8 @@ else
 	WORD_ID=$(wget -q -O - "$SEARCH_URL$TARGET" |\
 		grep "tit_cleansch" |\
 		# striping unnecessary tags
-		sed -e 's/<strong class="tit_cleansch @//g' |\
+		# <strong class="tit_cleansch" data-tiara-id="ekw000108423">
+		sed -e 's/<strong class="tit_cleansch" data-tiara-id="//g' |\
 		sed -e 's/\">//g' |\
 		# remove white space from beginning
 		sed -e 's/^\s*\s//g')
